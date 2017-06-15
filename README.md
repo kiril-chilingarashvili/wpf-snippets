@@ -1,1 +1,1 @@
-# wpf-snippets
+# Visual Studio snippets for WPF projects
