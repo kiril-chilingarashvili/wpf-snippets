@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Event with custom args</Title>
+      <Shortcut>aevent</Shortcut>
+      <Description>Code snippet for a Event with custom args</Description>
+      <Author>Kirill Chilingarashvili</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>name</ID>
+          <ToolTip>Event name</ToolTip>
+          <Default>MyEvent</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp">
+        <![CDATA[#region $name$
+
+        public class $name$EventArgs : EventArgs
+        {
+            public $name$EventArgs()
+            {
+                
+            }
+        }
+
+        public event EventHandler<$name$EventArgs> $name$;
+        public void Raise$name$($name$EventArgs e)
+        {
+            $name$?.Invoke(this, e);
+        }
+
+        #endregion]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
