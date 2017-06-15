@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Property raising INotifyPropertyChanged</Title>
+      <Shortcut>inotp</Shortcut>
+      <Description>Code snippet for a Property raising INotifyPropertyChanged</Description>
+      <Author>Microsoft Corporation</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>property</ID>
+          <ToolTip>Property name</ToolTip>
+          <Default>MyProperty</Default>
+        </Literal>
+        <Literal>
+          <ID>type</ID>
+          <ToolTip>Property type</ToolTip>
+          <Default>string</Default>
+        </Literal>
+        <Literal>
+          <ID>defaultValue</ID>
+          <ToolTip>Default value</ToolTip>
+          <Default>null</Default>
+        </Literal>
+        <Literal Editable="false">
+          <ID>classname</ID>
+          <ToolTip>Class name</ToolTip>
+          <Function>ClassName()</Function>
+          <Default>MyClass</Default>
+        </Literal>
+        <Literal Editable="false">
+          <ID>SystemWindowsDependencyProperty</ID>
+          <Function>SimpleTypeName(global::System.Windows.DependencyProperty)</Function>
+        </Literal>
+        <Literal Editable="false">
+          <ID>SystemWindowsDependencyObject</ID>
+          <Function>SimpleTypeName(global::System.Windows.DependencyObject)</Function>
+        </Literal>
+        <Literal Editable="false">
+          <ID>SystemWindowsDependencyPropertyChangedEventArgs</ID>
+          <Function>SimpleTypeName(global::System.Windows.DependencyPropertyChangedEventArgs)</Function>
+        </Literal>
+        <Literal Editable="false">
+	        <ID>SystemWindowsPropertyMetadata</ID>
+	        <Function>SimpleTypeName(global::System.Windows.PropertyMetadata)</Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp">
+        <![CDATA[#region $property$
+
+        private $type$ m$property$ = $defaultValue$;
+        public $type$ $property$
+        {
+            get { return m$property$; }
+            set 
+            {
+                if(m$property$ != value)
+                {
+                    m$property$ = value; 
+                    OnPropertyChanged(nameof($property$));
+                } 
+            }
+        }
+
+        #endregion]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

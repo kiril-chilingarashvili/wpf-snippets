@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Dependency Property (Reference type without a changed handler)</Title>
+      <Shortcut>dp_nohandler</Shortcut>
+      <Description>Code snippet for a reference type dependency property without a changed handler</Description>
+      <Author>Microsoft Corporation</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>property</ID>
+          <ToolTip>Property name</ToolTip>
+          <Default>MyProperty</Default>
+        </Literal>
+        <Literal>
+          <ID>type</ID>
+          <ToolTip>Property type</ToolTip>
+          <Default>string</Default>
+        </Literal>
+        <Literal>
+          <ID>defaultValue</ID>
+          <ToolTip>Default value</ToolTip>
+          <Default>null</Default>
+        </Literal>
+        <Literal Editable="false">
+          <ID>classname</ID>
+          <ToolTip>Class name</ToolTip>
+          <Function>ClassName()</Function>
+          <Default>MyClass</Default>
+        </Literal>
+        <Literal Editable="false">
+          <ID>SystemWindowsDependencyProperty</ID>
+          <Function>SimpleTypeName(global::System.Windows.DependencyProperty)</Function>
+        </Literal>
+        <Literal Editable="false">
+          <ID>SystemWindowsPropertyMetadata</ID>
+          <Function>SimpleTypeName(global::System.Windows.PropertyMetadata)</Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp">
+        <![CDATA[#region $property$
+
+        public $type$ $property$
+        {
+            get { return GetValue($property$Property) as $type$; }
+            set { SetValue($property$Property, value); }
+        }
+
+        public static readonly $SystemWindowsDependencyProperty$ $property$Property =
+            $SystemWindowsDependencyProperty$.Register(
+                "$property$",
+                typeof($type$),
+                typeof($classname$),
+                new $SystemWindowsPropertyMetadata$($defaultValue$));
+
+        #endregion]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

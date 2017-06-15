@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Dependency Property (Value type with a changed handler)</Title>
+      <Shortcut>command</Shortcut>
+      <Description>Code snippet for a value type dependency property with a changed handler</Description>
+      <Author>Microsoft Corporation</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>property</ID>
+          <ToolTip>Property name</ToolTip>
+          <Default>MyCommand</Default>
+        </Literal>
+        <Literal>
+          <ID>type</ID>
+          <ToolTip>Property type</ToolTip>
+          <Default>RelayCommand</Default>
+        </Literal>
+        <Literal>
+          <ID>defaultValue</ID>
+          <ToolTip>Default value</ToolTip>
+          <Default>0</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp">
+        <![CDATA[#region $property$Command
+
+        private $type$ m$property$Command;
+        public $type$ $property$Command
+        {
+            get
+            {
+                if (m$property$Command == null)
+                {
+                    m$property$Command = new $type$($property$, Can$property$, Term.None);
+                }
+                return m$property$Command;
+            }
+        }
+
+        private bool Can$property$(object param)
+        {
+            return true;
+        }
+
+        private void $property$(object param)
+        {
+            if (Can$property$(param))
+            { 
+            }
+        }
+
+        #endregion
+]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

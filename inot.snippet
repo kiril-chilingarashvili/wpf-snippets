@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Implement INotifyPropertyChanged</Title>
+      <Shortcut>inot</Shortcut>
+      <Description>Implement INotifyPropertyChanged and provide an OnPropertyChanged method</Description>
+      <Author>Microsoft Corporation</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Code Language="CSharp">
+          <![CDATA[
+
+            public event PropertyChangedEventHandler PropertyChanged;
+
+            protected virtual void OnPropertyChanged(string propertyName)
+            {
+                var handler = PropertyChanged;
+                if (handler != null)
+                {
+                    var e = new PropertyChangedEventArgs(propertyName);
+                    handler(this, e);
+                }
+            }$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
